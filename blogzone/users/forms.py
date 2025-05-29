@@ -9,3 +9,17 @@ class UserRegisterForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
+
+
+from django import forms
+from .models import UserProfile
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ['location', 'bio', 'profile_picture']
+        widgets = {
+            'location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter your location'}),
+            'bio': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Write something about yourself'}),
+            'profile_picture': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+        }
