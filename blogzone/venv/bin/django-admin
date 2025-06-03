@@ -1,4 +1,4 @@
-#!/home/afzal-khan/Desktop/blogzone/blogzone/venv/bin/python3
+#!/home/afzal-khan/WorkWithDjango/blogzone/blogzone/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

@@ -8,7 +8,7 @@ from django.contrib.auth import views as auth_views
 from .views import PostUpdateView, PostDeleteView
 
 urlpatterns = [
-
+    
     path('', views.home, name='home'),
     path('post/<int:pk>/<slug:slug>/', views.post_detail, name='post_detail'),
     path('login/', auth_views.LoginView.as_view(template_name='blog/login.html'), name='login'),

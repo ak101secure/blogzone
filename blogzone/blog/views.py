@@ -107,7 +107,7 @@ def search(request):
     if query:
         results = Post.objects.filter(
             Q(title__icontains=query) | Q(content__icontains=query)
-        ).order_by('-created_at')  # ✅ FIXED here
+        ).order_by('-created_at')  
 
     paginator = Paginator(results, 5)
     page_number = request.GET.get('page')
