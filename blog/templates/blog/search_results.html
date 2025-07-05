@@ -1,0 +1,36 @@
+<!-- blog/templates/blog/search_results.html -->
+ 
+<h2>Search Results for "{{ query }}"</h2>
+
+{% if page_obj %}
+  {% for post in page_obj %}
+    <div>
+      <h3><a href="{% url 'post-detail' post.pk %}">{{ post.title }}</a></h3>
+      <p>{{ post.content|truncatewords:30 }}</p>
+      <hr>
+    </div>
+  {% empty %}
+    <p>No posts found matching your query.</p>
+  {% endfor %}
+
+  <div class="pagination">
+    <span class="step-links">
+      {% if page_obj.has_previous %}
+        <a href="?q={{ query }}&page=1">&laquo; First</a>
+        <a href="?q={{ query }}&page={{ page_obj.previous_page_number }}">Previous</a>
+      {% endif %}
+
+      <span class="current">
+        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+      </span>
+
+      {% if page_obj.has_next %}
+        <a href="?q={{ query }}&page={{ page_obj.next_page_number }}">Next</a>
+        <a href="?q={{ query }}&page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+      {% endif %}
+    </span>
+  </div>
+
+{% else %}
+  <p>Please enter a search query.</p>
+{% endif %}

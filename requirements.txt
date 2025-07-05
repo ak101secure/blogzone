@@ -1,0 +1,10 @@
+Django==5.2.1
+gunicorn
+Pillow
+django-crispy-forms
+crispy-bootstrap4
+django-taggit
+django-ckeditor
+whitenoise
+psycopg2-binary
+python-dotenv
